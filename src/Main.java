@@ -19,6 +19,9 @@ public class Main {
         Integer liczba = wpiszLiczbeZKlawiatury();
         Integer liczbaNajblizszaPalindroma = najblizszaDoPalindroma(liczba);
         System.out.println(liczbaNajblizszaPalindroma);
+        slowo = wpiszStringZKlawiatury();
+        String cezar = Cezar(slowo,3);
+        System.out.println(cezar);
     }
     private static String wpiszStringZKlawiatury(){
         System.out.println("Podaj słowo: ");
@@ -58,5 +61,16 @@ public class Main {
             mniejsza--;
             wieksza++;
         }
+    }
+    private static String Cezar(String slowo,int klucz){
+        StringBuilder zaszyfrowane = new StringBuilder();
+        for (int i = 0; i < slowo.length(); i++) {
+            char znak = slowo.charAt(i);
+            char base = Character.isUpperCase(znak) ? 'A':'a';
+            char znakPrzesuniety = (char)((znak - base + klucz) % 26 + base);
+            zaszyfrowane.append(znakPrzesuniety);
+        }
+
+        return zaszyfrowane.toString();
     }
 }
