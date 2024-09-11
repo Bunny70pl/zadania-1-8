@@ -9,28 +9,54 @@ public class Main {
                 System.out.println(i);
             }
         }
-        String slowo = wpiszLiczbyZKlawiatury();
+        String slowo = wpiszStringZKlawiatury();
         boolean palindrom = palindrom(slowo);
         if(palindrom){
             System.out.println("tak jest palindronem");
         }else{
             System.out.println("Nie jest palindronem");
         }
+        Integer liczba = wpiszLiczbeZKlawiatury();
+        Integer liczbaNajblizszaPalindroma = najblizszaDoPalindroma(liczba);
+        System.out.println(liczbaNajblizszaPalindroma);
     }
-    private static String wpiszLiczbyZKlawiatury(){
+    private static String wpiszStringZKlawiatury(){
         System.out.println("Podaj słowo: ");
         Scanner Klawiatura = new Scanner(System.in);
             String slowo = Klawiatura.nextLine();
         return slowo;
     }
+    private static Integer wpiszLiczbeZKlawiatury(){
+        System.out.println("Podaj Liczbe: ");
+        Scanner Klawiatura = new Scanner(System.in);
+        Integer liczba = Klawiatura.nextInt();
+        return liczba;
+    }
     private static boolean palindrom(String slowo){
         boolean palindrom = true;
-        for (int i = 0,j = slowo.length()-1; i < slowo.length()/2; i++,j--) {
+        for (int i = 0,j = slowo.length()-1; i < j; i++,j--) {
             if(slowo.charAt(i) != slowo.charAt(j)){
                 palindrom = false;
                 return palindrom;
             }
         }
         return palindrom;
+    }
+    private static Integer najblizszaDoPalindroma(Integer liczba){
+        int mniejsza = liczba -1;
+        int wieksza = liczba +1;
+        if(palindrom(Integer.toString(liczba))){
+            return liczba;
+        }
+        while(true){
+            if(palindrom(Integer.toString(mniejsza))){
+                return mniejsza;
+            }
+            if(palindrom(Integer.toString(wieksza))){
+                return wieksza;
+            }
+            mniejsza--;
+            wieksza++;
+        }
     }
 }
