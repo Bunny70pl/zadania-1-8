@@ -46,6 +46,8 @@ public class Main {
         System.out.println("Podaj liczbe do sprwadzenia czy jest liczba pierwsza");
         liczba = wpiszLiczbeZKlawiatury();
         System.out.println(czyLiczbaPierwsza(liczba));
+
+        System.out.println("Twoje haslo: "+ generujHaslo());
     }
     private static String wpiszStringZKlawiatury(){
         Scanner Klawiatura = new Scanner(System.in);
@@ -138,5 +140,26 @@ public class Main {
             }
         }
         return komunikatTakCzyNie;
+    }
+    private static String generujHaslo(){
+        String haslo ="";
+        String litery = "abcdefghijklmnopqrstwxyz";//26
+        String liczby = "1234567890";//10
+        String znakiSpecjlane = "~!@#$%^&*()-_=+[]{}|;:',./<>?";//31
+        int liczba = (int)(Math.random()*3+1);
+        while(haslo.length()<20){
+            liczba = (int)(Math.random()*3+1);
+            if(liczba == 1){
+               liczba = (int)(Math.random()*26);
+               haslo = haslo + litery.charAt(liczba);
+            } else if (liczba == 2) {
+                liczba = (int)(Math.random()*10);
+                haslo = haslo + liczby.charAt(liczba);
+            }else {
+                liczba = (int)(Math.random()*31);
+                haslo = haslo + znakiSpecjlane.charAt(liczba);
+            }
+        }
+        return haslo;
     }
 }
