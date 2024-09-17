@@ -48,6 +48,8 @@ public class Main {
         System.out.println(czyLiczbaPierwsza(liczba));
 
         System.out.println("Twoje haslo: "+ generujHaslo());
+
+        System.out.println("Tablica z pierwiastakami indeksow" +tablicaZPierwiastakimiZindeksow());
     }
     private static String wpiszStringZKlawiatury(){
         Scanner Klawiatura = new Scanner(System.in);
@@ -150,16 +152,23 @@ public class Main {
         while(haslo.length()<20){
             liczba = (int)(Math.random()*3+1);
             if(liczba == 1){
-               liczba = (int)(Math.random()*26);
-               haslo = haslo + litery.charAt(liczba);
+               liczba = (int)(Math.random()*litery.length());
+               haslo += litery.charAt(liczba);
             } else if (liczba == 2) {
-                liczba = (int)(Math.random()*10);
-                haslo = haslo + liczby.charAt(liczba);
+                liczba = (int)(Math.random()*liczby.length());
+                haslo +=  liczby.charAt(liczba);
             }else {
-                liczba = (int)(Math.random()*31);
-                haslo = haslo + znakiSpecjlane.charAt(liczba);
+                liczba = (int)(Math.random()*znakiSpecjlane.length());
+                haslo +=  znakiSpecjlane.charAt(liczba);
             }
         }
         return haslo;
+    }
+    private static ArrayList tablicaZPierwiastakimiZindeksow(){
+        ArrayList<Double> tablicaZpierwiastkami = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            tablicaZpierwiastkami.add((Double) (Math.sqrt(i)));
+        }
+        return tablicaZpierwiastkami;
     }
 }
