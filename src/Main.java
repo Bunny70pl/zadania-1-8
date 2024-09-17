@@ -12,6 +12,7 @@ public class Main {
                 System.out.println(i);
             }
         }
+        System.out.println("Podaj slowo do sprawdzenia czy jest palindromem");
         String slowo = wpiszStringZKlawiatury();
 
         boolean palindrom = palindrom(slowo);
@@ -20,11 +21,12 @@ public class Main {
         }else{
             System.out.println("Nie jest palindronem");
         }
-
+        System.out.println("Podaj liczbe do ktorej zostanie podana najblizsza liczba palindromowa");
         Integer liczba = wpiszLiczbeZKlawiatury();
         Integer liczbaNajblizszaPalindroma = najblizszaDoPalindroma(liczba);
         System.out.println(liczbaNajblizszaPalindroma);
 
+        System.out.println("Podaj slowo do zaszyfrowania szyfrem cezara");
         slowo = wpiszStringZKlawiatury();
         String cezar = Cezar(slowo,3);
         System.out.println(cezar);
@@ -40,15 +42,17 @@ public class Main {
         System.out.println("Podaj liczbe do silni (n!)");
         liczba = wpiszLiczbeZKlawiatury();
         System.out.println("Silnia wynosi: " + silniaZPodanejLiczby(liczba));
+
+        System.out.println("Podaj liczbe do sprwadzenia czy jest liczba pierwsza");
+        liczba = wpiszLiczbeZKlawiatury();
+        System.out.println(czyLiczbaPierwsza(liczba));
     }
     private static String wpiszStringZKlawiatury(){
-        System.out.println("Podaj słowo: ");
         Scanner Klawiatura = new Scanner(System.in);
             String slowo = Klawiatura.nextLine();
         return slowo;
     }
     private static ArrayList wpiszDoTablicy(){
-        System.out.println("Podaj słowo: ");
         Scanner Klawiatura = new Scanner(System.in);
         String slowo = Klawiatura.nextLine();
         ArrayList slowoLista = new ArrayList<Character>();
@@ -58,7 +62,6 @@ public class Main {
         return slowoLista;
     }
     private static Integer wpiszLiczbeZKlawiatury(){
-        System.out.println("Podaj Liczbe: ");
         Scanner Klawiatura = new Scanner(System.in);
         Integer liczba = Klawiatura.nextInt();
         return liczba;
@@ -125,5 +128,15 @@ public class Main {
             silnia *= i;
         }
         return silnia;
+    }
+    private static String czyLiczbaPierwsza(Integer liczba){
+        String komunikatTakCzyNie ="Tak to jest liczba pierwsza";
+        for (int i = liczba - 1; i >=2; i--) {
+            if(liczba % i == 0){
+                komunikatTakCzyNie = "Ta liczba nie jest liczba pierwsza";
+                return komunikatTakCzyNie;
+            }
+        }
+        return komunikatTakCzyNie;
     }
 }
