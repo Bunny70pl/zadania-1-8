@@ -46,21 +46,26 @@ public class Main {
        //liczba = wpiszLiczbeZKlawiatury();
        //System.out.println(znajdzNajblizszaLiczbe(TablicaZCiagiemFibo,liczba));
 
-        ArrayList<Integer> wylsowane = new ArrayList<>();
-        ArrayList<Integer> parzyste = new ArrayList<>();
-        ArrayList<Integer> nieParzyste = new ArrayList<>();
-        HashSet<Integer> unikatowe = new HashSet<>();
-        wylosujLiczby(wylsowane,parzyste,nieParzyste,unikatowe);
-        System.out.println("Wylosowane: " + wylsowane);
-        System.out.println("Parzyste: " + parzyste);
-        System.out.println("Nie parzyste: " + nieParzyste);
-        System.out.println("Unikatowe: " + unikatowe);
+        //ArrayList<Integer> wylsowane = new ArrayList<>();
+        //ArrayList<Integer> parzyste = new ArrayList<>();
+        //ArrayList<Integer> nieParzyste = new ArrayList<>();
+        //HashSet<Integer> unikatowe = new HashSet<>();
+        //wylosujLiczby(wylsowane,parzyste,nieParzyste,unikatowe);
+        //System.out.println("Wylosowane: " + wylsowane);
+        //System.out.println("Parzyste: " + parzyste);
+        //System.out.println("Nie parzyste: " + nieParzyste);
+        //System.out.println("Unikatowe: " + unikatowe);
+//
+        //Collections.sort(wylsowane);
+        //System.out.println(wylsowane);
+        //System.out.println("Mediana: " + mediana(wylsowane));
+        //System.out.println("Dominanta: " + dominanta(wylsowane));
+        //System.out.println("Srednia: " + srednia(wylsowane));
 
-        Collections.sort(wylsowane);
-        System.out.println(wylsowane);
-        System.out.println("Mediana: " + mediana(wylsowane));
-        System.out.println("Dominanta: " + dominanta(wylsowane));
-        System.out.println("Srednia: " + srednia(wylsowane));
+        int x = wpiszLiczbeZKlawiatury();
+        int y = wpiszLiczbeZKlawiatury();
+        List<Integer> liczbyPierwsze = generujLiczbyPierwsze(1000);
+        System.out.println(znajdzLiczbyPierwszeWZakresie(liczbyPierwsze,x,y));
     }
     private static String wpiszStringZKlawiatury(){
         Scanner Klawiatura = new Scanner(System.in);
@@ -277,5 +282,34 @@ public class Main {
             }
         }
         return dominanta;
+    }
+    private static List<Integer> generujLiczbyPierwsze(int n) {
+        boolean[] sito = new boolean[n];
+        for (int i = 2; i < n; i++) {
+            sito[i] = true;
+        }
+        for (int i = 2; i * i < n; i++) {
+            if (sito[i]) {
+                for (int j = i * i; j < n; j += i) {
+                    sito[j] = false;
+                }
+            }
+        }
+        List<Integer> liczbyPierwsze = new ArrayList<>();
+        for (int i = 2; i < n; i++) {
+            if (sito[i]) {
+                liczbyPierwsze.add(i);
+            }
+        }
+        return liczbyPierwsze;
+    }
+    private static List<Integer> znajdzLiczbyPierwszeWZakresie(List<Integer> liczbyPierwsze, int x, int y) {
+        List<Integer> listaLiczbPierwszych = new ArrayList<>();
+        for (int liczba : liczbyPierwsze) {
+            if (liczba >= x && liczba <= y) {
+                listaLiczbPierwszych.add(liczba);
+            }
+        }
+        return listaLiczbPierwszych;
     }
 }
