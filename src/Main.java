@@ -7,49 +7,55 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        for (int i = 10; i <100 ; i++) {
-            if(i % 2 == 0){
-                System.out.println(i);
-            }
-        }
-        System.out.println("Podaj slowo do sprawdzenia czy jest palindromem");
-        String slowo = wpiszStringZKlawiatury();
+        //for (int i = 10; i <100 ; i++) {
+        //    if(i % 2 == 0){
+        //        System.out.println(i);
+        //    }
+        //}
+        //System.out.println("Podaj slowo do sprawdzenia czy jest palindromem");
+        //String slowo = wpiszStringZKlawiatury();
+//
+        //boolean palindrom = palindrom(slowo);
+        //if(palindrom){
+        //    System.out.println("tak jest palindronem");
+        //}else{
+        //    System.out.println("Nie jest palindronem");
+        //}
+        //System.out.println("Podaj liczbe do ktorej zostanie podana najblizsza liczba palindromowa");
+        //Integer liczba = wpiszLiczbeZKlawiatury();
+        //Integer liczbaNajblizszaPalindroma = najblizszaDoPalindroma(liczba);
+        //System.out.println(liczbaNajblizszaPalindroma);
 
-        boolean palindrom = palindrom(slowo);
-        if(palindrom){
-            System.out.println("tak jest palindronem");
-        }else{
-            System.out.println("Nie jest palindronem");
-        }
-        System.out.println("Podaj liczbe do ktorej zostanie podana najblizsza liczba palindromowa");
-        Integer liczba = wpiszLiczbeZKlawiatury();
-        Integer liczbaNajblizszaPalindroma = najblizszaDoPalindroma(liczba);
-        System.out.println(liczbaNajblizszaPalindroma);
+        //System.out.println("Podaj slowo do zaszyfrowania szyfrem cezara");
+        //slowo = wpiszStringZKlawiatury();
+        //String cezar = Cezar(slowo,3);
+        //System.out.println(cezar);
+//
+        //System.out.println("Wpisz slowo");
+        //ArrayList listaSlowo1 = new ArrayList<Character>();;
+        //listaSlowo1 = wpiszDoTablicy();
+        //System.out.println("Wpisz drugie slowo");
+        //ArrayList listaSlowo2 = new ArrayList<Character>();
+        //listaSlowo2 = wpiszDoTablicy();
+        //System.out.println(czyAnagram(listaSlowo1,listaSlowo2));
+//
+        //System.out.println("Podaj liczbe do silni (n!)");
+        //liczba = wpiszLiczbeZKlawiatury();
+        //System.out.println("Silnia wynosi: " + silniaZPodanejLiczby(liczba));
+//
+        //System.out.println("Podaj liczbe do sprwadzenia czy jest liczba pierwsza");
+        //liczba = wpiszLiczbeZKlawiatury();
+        //System.out.println(czyLiczbaPierwsza(liczba));
+//
+        //System.out.println("Twoje haslo: "+ generujHaslo());
+//
+        //System.out.println("Tablica z pierwiastakami indeksow" +tablicaZPierwiastakimiZindeksow());
 
-        System.out.println("Podaj slowo do zaszyfrowania szyfrem cezara");
-        slowo = wpiszStringZKlawiatury();
-        String cezar = Cezar(slowo,3);
-        System.out.println(cezar);
-
-        System.out.println("Wpisz slowo");
-        ArrayList listaSlowo1 = new ArrayList<Character>();;
-        listaSlowo1 = wpiszDoTablicy();
-        System.out.println("Wpisz drugie slowo");
-        ArrayList listaSlowo2 = new ArrayList<Character>();
-        listaSlowo2 = wpiszDoTablicy();
-        System.out.println(czyAnagram(listaSlowo1,listaSlowo2));
-
-        System.out.println("Podaj liczbe do silni (n!)");
-        liczba = wpiszLiczbeZKlawiatury();
-        System.out.println("Silnia wynosi: " + silniaZPodanejLiczby(liczba));
-
-        System.out.println("Podaj liczbe do sprwadzenia czy jest liczba pierwsza");
-        liczba = wpiszLiczbeZKlawiatury();
-        System.out.println(czyLiczbaPierwsza(liczba));
-
-        System.out.println("Twoje haslo: "+ generujHaslo());
-
-        System.out.println("Tablica z pierwiastakami indeksow" +tablicaZPierwiastakimiZindeksow());
+        System.out.println("Tablica z ciagiem fiobnaciego" + tablicaZCiagaiemFibonaciego());
+        ArrayList<Integer> TablicaZCiagiemFibo = tablicaZCiagaiemFibonaciego();
+        System.out.println("Podaj liczbe do wyszukania: ");
+        int liczba = wpiszLiczbeZKlawiatury();
+        System.out.println(znajdzNajblizszaLiczbe(TablicaZCiagiemFibo,liczba));
     }
     private static String wpiszStringZKlawiatury(){
         Scanner Klawiatura = new Scanner(System.in);
@@ -170,5 +176,47 @@ public class Main {
             tablicaZpierwiastkami.add((Double) (Math.sqrt(i)));
         }
         return tablicaZpierwiastkami;
+    }
+    private static ArrayList tablicaZCiagaiemFibonaciego(){
+        ArrayList<Integer> TablicaZCiagiemFibo = new ArrayList<>();
+        TablicaZCiagiemFibo.add(0);
+        TablicaZCiagiemFibo.add(1);
+        for (int i = 2; i < 40; i++) {
+            int size = TablicaZCiagiemFibo.size();
+            int nastepnaLiczba = TablicaZCiagiemFibo.get(size - 1) + TablicaZCiagiemFibo.get(size - 2);
+            TablicaZCiagiemFibo.add(nastepnaLiczba);
+        }
+        return TablicaZCiagiemFibo;
+    }
+    private static int znajdzNajblizszaLiczbe(ArrayList<Integer> tablica, int liczba) {
+        int lewa = 0;
+        int prawa = tablica.size() - 1;
+        int srodek;
+        int najblizsza = tablica.get(0);
+        while (lewa <= prawa) {
+            srodek = (lewa + prawa) / 2;
+            if (tablica.get(srodek) == liczba) {
+                return tablica.get(srodek);
+            } else if (tablica.get(srodek) < liczba) {
+                lewa = srodek + 1;
+            } else {
+                prawa = srodek - 1;
+            }
+        }
+        if (prawa >= 0 && lewa < tablica.size()) {
+            int roznicaLewej = Math.abs(tablica.get(lewa) - liczba);
+            int roznicaPrawej = Math.abs(tablica.get(prawa) - liczba);
+
+            if (roznicaLewej < roznicaPrawej) {
+                najblizsza = tablica.get(lewa);
+            } else {
+                najblizsza = tablica.get(prawa);
+            }
+        } else if (lewa < tablica.size()) {
+            najblizsza = tablica.get(lewa);
+        } else if (prawa >= 0) {
+            najblizsza = tablica.get(prawa);
+        }
+        return najblizsza;
     }
 }
