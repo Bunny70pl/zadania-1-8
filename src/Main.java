@@ -36,6 +36,10 @@ public class Main {
         ArrayList listaSlowo2 = new ArrayList<Character>();
         listaSlowo2 = wpiszDoTablicy();
         System.out.println(czyAnagram(listaSlowo1,listaSlowo2));
+
+        System.out.println("Podaj liczbe do silni (n!)");
+        liczba = wpiszLiczbeZKlawiatury();
+        System.out.println("Silnia wynosi: " + silniaZPodanejLiczby(liczba));
     }
     private static String wpiszStringZKlawiatury(){
         System.out.println("Podaj słowo: ");
@@ -114,5 +118,12 @@ public class Main {
             anagram = "Podane słowa sa anagrmami";
         }
         return anagram;
+    }
+    private static Integer silniaZPodanejLiczby(Integer liczba){
+        int silnia = 1;
+        for (int i = liczba; i >= 1; i--) {
+            silnia *= i;
+        }
+        return silnia;
     }
 }
