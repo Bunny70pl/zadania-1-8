@@ -4,63 +4,66 @@ import java.util.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-       //for (int i = 10; i <100 ; i++) {
-       //    if(i % 2 == 0){
-       //        System.out.println(i);
-       //    }
-       //}
-       //System.out.println("Podaj slowo do sprawdzenia czy jest palindromem");
-       //String slowo = wpiszStringZKlawiatury();
-       //boolean palindrom = palindrom(slowo);
-       //if(palindrom){
-       //    System.out.println("tak jest palindronem");
-       //}else{
-       //    System.out.println("Nie jest palindronem");
-       //}
-       //System.out.println("Podaj liczbe do ktorej zostanie podana najblizsza liczba palindromowa");
-       //Integer liczba = wpiszLiczbeZKlawiatury();
-       //Integer liczbaNajblizszaPalindroma = najblizszaDoPalindroma(liczba);
-       //System.out.println(liczbaNajblizszaPalindroma);
-       //System.out.println("Podaj slowo do zaszyfrowania szyfrem cezara");
-       //slowo = wpiszStringZKlawiatury();
-       //String cezar = Cezar(slowo,3);
-       //System.out.println(cezar);
-       //System.out.println("Wpisz slowo");
-       //ArrayList listaSlowo1 = new ArrayList<Character>();;
-       //listaSlowo1 = wpiszDoTablicy();
-       //System.out.println("Wpisz drugie slowo");
-       //ArrayList listaSlowo2 = new ArrayList<Character>();
-       //listaSlowo2 = wpiszDoTablicy();
-       //System.out.println(czyAnagram(listaSlowo1,listaSlowo2));
-       //System.out.println("Podaj liczbe do silni (n!)");
-       //liczba = wpiszLiczbeZKlawiatury();
-       //System.out.println("Silnia wynosi: " + silniaZPodanejLiczby(liczba));
-       //System.out.println("Podaj liczbe do sprwadzenia czy jest liczba pierwsza");
-       //liczba = wpiszLiczbeZKlawiatury();
-       //System.out.println(czyLiczbaPierwsza(liczba));
-       //System.out.println("Twoje haslo: "+ generujHaslo());
-       //System.out.println("Tablica z pierwiastakami indeksow" +tablicaZPierwiastakimiZindeksow());
-       //System.out.println("Tablica z ciagiem fiobnaciego" + tablicaZCiagaiemFibonaciego());
-       //ArrayList<Integer> TablicaZCiagiemFibo = tablicaZCiagaiemFibonaciego();
-       //System.out.println("Podaj liczbe do wyszukania: ");
-       //liczba = wpiszLiczbeZKlawiatury();
-       //System.out.println(znajdzNajblizszaLiczbe(TablicaZCiagiemFibo,liczba));
+       for (int i = 10; i <100 ; i++) {
+           if(i % 2 == 0){
+               System.out.println(i);
+           }
+       }
+       System.out.println("Podaj slowo do sprawdzenia czy jest palindromem");
+       String slowo = wpiszStringZKlawiatury();
+       boolean palindrom = palindrom(slowo);
+       if(palindrom){
+           System.out.println("tak jest palindronem");
+       }else{
+           System.out.println("Nie jest palindronem");
+       }
+       System.out.println("Podaj liczbe do ktorej zostanie podana najblizsza liczba palindromowa");
+       Integer liczba = wpiszLiczbeZKlawiatury();
+       Integer liczbaNajblizszaPalindroma = najblizszaDoPalindroma(liczba);
+       System.out.println(liczbaNajblizszaPalindroma);
+       System.out.println("Podaj slowo do zaszyfrowania szyfrem cezara");
+       slowo = wpiszStringZKlawiatury();
+       String cezar = Cezar(slowo,3);
+       System.out.println(cezar);
+       System.out.println("Wpisz slowo");
+       ArrayList listaSlowo1 = new ArrayList<Character>();;
+       listaSlowo1 = wpiszDoTablicy();
+       System.out.println("Wpisz drugie slowo");
+       ArrayList listaSlowo2 = new ArrayList<Character>();
+       listaSlowo2 = wpiszDoTablicy();
+       System.out.println(czyAnagram(listaSlowo1,listaSlowo2));
+       System.out.println("Podaj liczbe do silni (n!)");
+       liczba = wpiszLiczbeZKlawiatury();
+       System.out.println("Silnia wynosi: " + silniaZPodanejLiczby(liczba));
+       System.out.println("Podaj liczbe do sprwadzenia czy jest liczba pierwsza");
 
-        //ArrayList<Integer> wylsowane = new ArrayList<>();
-        //ArrayList<Integer> parzyste = new ArrayList<>();
-        //ArrayList<Integer> nieParzyste = new ArrayList<>();
-        //HashSet<Integer> unikatowe = new HashSet<>();
-        //wylosujLiczby(wylsowane,parzyste,nieParzyste,unikatowe);
-        //System.out.println("Wylosowane: " + wylsowane);
-        //System.out.println("Parzyste: " + parzyste);
-        //System.out.println("Nie parzyste: " + nieParzyste);
-        //System.out.println("Unikatowe: " + unikatowe);
-//
-        //Collections.sort(wylsowane);
-        //System.out.println(wylsowane);
-        //System.out.println("Mediana: " + mediana(wylsowane));
-        //System.out.println("Dominanta: " + dominanta(wylsowane));
-        //System.out.println("Srednia: " + srednia(wylsowane));
+       liczba = wpiszLiczbeZKlawiatury();
+       System.out.println(czyLiczbaPierwsza(liczba));
+
+       System.out.println("Twoje haslo: "+ generujHaslo());
+
+       System.out.println("Tablica z pierwiastakami indeksow" +tablicaZPierwiastakimiZindeksow());
+       System.out.println("Tablica z ciagiem fiobnaciego" + tablicaZCiagaiemFibonaciego());
+       ArrayList<Integer> TablicaZCiagiemFibo = tablicaZCiagaiemFibonaciego();
+       System.out.println("Podaj liczbe do wyszukania: ");
+       liczba = wpiszLiczbeZKlawiatury();
+       System.out.println(znajdzNajblizszaLiczbe(TablicaZCiagiemFibo,liczba));
+
+        ArrayList<Integer> wylsowane = new ArrayList<>();
+        ArrayList<Integer> parzyste = new ArrayList<>();
+        ArrayList<Integer> nieParzyste = new ArrayList<>();
+        HashSet<Integer> unikatowe = new HashSet<>();
+        wylosujLiczby(wylsowane,parzyste,nieParzyste,unikatowe);
+        System.out.println("Wylosowane: " + wylsowane);
+        System.out.println("Parzyste: " + parzyste);
+        System.out.println("Nie parzyste: " + nieParzyste);
+        System.out.println("Unikatowe: " + unikatowe);
+
+        Collections.sort(wylsowane);
+        System.out.println(wylsowane);
+        System.out.println("Mediana: " + mediana(wylsowane));
+        System.out.println("Dominanta: " + dominanta(wylsowane));
+        System.out.println("Srednia: " + srednia(wylsowane));
 
         int x = wpiszLiczbeZKlawiatury();
         int y = wpiszLiczbeZKlawiatury();
